@@ -1,6 +1,31 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  def templates
+    @templates = [
+      "N",
+      "A N",
+      "PN",
+      "A PN",
+      "N + N",
+      "A N + A N",
+      "A N + N",
+      "N + A N",
+      "PN + PN",
+      "A PN + A PN",
+      "A PN + PN",
+      "PN + A PN",
+      "N + PN",
+      "PN + N",
+      "A N + A PN",
+      "A PN + A N",
+      "A N + PN",
+      "N + A PN",
+      "A PN + N",
+      "PN + A N",
+    ]
+  end
+
   protected
 
   def authenticate_user
