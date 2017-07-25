@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
       @current_user = User.find_by_auth_token!(cookies[:auth_token])
       return true
     else
-      redirect_to sessions_login_path
+      redirect_to landing_path
       return false
     end
   end

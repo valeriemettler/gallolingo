@@ -8,6 +8,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      if params[:remember_me]
+        cookies.permanent[:auth_token] = @user.auth_token
+      else
+        cookies[:auth_token] = @user.auth_token
+      end
       flash[:notice] = "You signed up succesfully"
       flash[:color] = "valid"
       redirect_to root_path
